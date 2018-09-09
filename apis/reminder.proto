@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package reminder;
+
+service Reminders {
+
+    rpc GetReminders (GetRemindersRequest) returns (stream Reminder) {
+    }
+    rpc ClearReminder (Reminder) returns (Reminder) {
+    }
+    rpc NewReminder (Reminder) returns (Reminder) {
+    }
+
+}
+
+message GetRemindersRequest {
+}
+
+message Reminder {
+    int64 id = 1;
+    string text = 2;
+    string action = 3;
+    bool cleared = 4;
+    string frequency = 5;
+}
+
+
